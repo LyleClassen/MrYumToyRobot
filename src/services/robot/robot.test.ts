@@ -2,18 +2,18 @@ import Robot from './robot';
 
 describe('Robot Class', () => {
   describe('Place', () => {
-    test('should set X,Y and F to 1,1,E', () => {
+    test('should set X,Y and F to 1,1,EAST', () => {
       const robo = new Robot();
 
-      robo.place(1, 1, 'E');
+      robo.place(1, 1, 'EAST');
 
-      expect(robo.report()).toEqual('1,1,E');
+      expect(robo.report()).toEqual('1,1,EAST');
     });
     test('should throw exception when X is out of bounds', () => {
       const robo = new Robot();
 
       const execute = () => {
-        robo.place(-1, 1, 'E');
+        robo.place(-1, 1, 'EAST');
       };
 
       expect(execute).toThrowError(new Error('X postion out of bounds'));
@@ -22,7 +22,7 @@ describe('Robot Class', () => {
       const robo = new Robot();
 
       const execute = () => {
-        robo.place(1, -1, 'E');
+        robo.place(1, -1, 'EAST');
       };
 
       expect(execute).toThrowError(new Error('Y postion out of bounds'));
@@ -31,7 +31,7 @@ describe('Robot Class', () => {
       const robo = new Robot();
 
       const execute = () => {
-        robo.place(1, 1, 'EAST');
+        robo.place(1, 1, 'NORTH WEST');
       };
 
       expect(execute).toThrowError(new Error('Invalid Facing Value'));
@@ -52,26 +52,26 @@ describe('Robot Class', () => {
       let robo: Robot;
       beforeAll(() => {
         robo = new Robot();
-        robo.place(0, 0, 'N');
+        robo.place(0, 0, 'NORTH');
       });
-      test('should initially Face N', () => {
-        expect(robo.facing).toEqual('N');
+      test('should initially Face NORTH', () => {
+        expect(robo.facing).toEqual('NORTH');
       });
-      test('should Turn Left and Face W', () => {
+      test('should Turn Left and Face WEST', () => {
         robo.left();
-        expect(robo.facing).toEqual('W');
+        expect(robo.facing).toEqual('WEST');
       });
-      test('should Turn Left and Face S', () => {
+      test('should Turn Left and Face SOUTH', () => {
         robo.left();
-        expect(robo.facing).toEqual('S');
+        expect(robo.facing).toEqual('SOUTH');
       });
-      test('should Turn Left and Face E', () => {
+      test('should Turn Left and Face EAST', () => {
         robo.left();
-        expect(robo.facing).toEqual('E');
+        expect(robo.facing).toEqual('EAST');
       });
-      test('should Turn Left and Face N', () => {
+      test('should Turn Left and Face NORTH', () => {
         robo.left();
-        expect(robo.facing).toEqual('N');
+        expect(robo.facing).toEqual('NORTH');
       });
     });
   });
@@ -90,30 +90,30 @@ describe('Robot Class', () => {
       let robo: Robot;
       beforeAll(() => {
         robo = new Robot();
-        robo.place(0, 0, 'N');
+        robo.place(0, 0, 'NORTH');
       });
-      test('should initially Face N', () => {
-        expect(robo.facing).toEqual('N');
+      test('should initially Face NORTH', () => {
+        expect(robo.facing).toEqual('NORTH');
       });
-      test('should Turn Right and Face E', () => {
+      test('should Turn Right and Face EAST', () => {
         robo.right();
-        expect(robo.facing).toEqual('E');
+        expect(robo.facing).toEqual('EAST');
       });
-      test('should Turn Right and Face S', () => {
+      test('should Turn Right and Face SOUTH', () => {
         robo.right();
-        expect(robo.facing).toEqual('S');
+        expect(robo.facing).toEqual('SOUTH');
       });
-      test('should Turn Right and Face W', () => {
+      test('should Turn Right and Face WEST', () => {
         robo.right();
-        expect(robo.facing).toEqual('W');
+        expect(robo.facing).toEqual('WEST');
       });
-      test('should Turn Right and Face N', () => {
+      test('should Turn Right and Face NORTH', () => {
         robo.right();
-        expect(robo.facing).toEqual('N');
+        expect(robo.facing).toEqual('NORTH');
       });
     });
   });
-  describe('Move', () => {
+  describe('MovEAST', () => {
     describe('not placed', () => {
       test('should throw "Robot has not been placed"', () => {
         const robo = new Robot();
@@ -125,16 +125,16 @@ describe('Robot Class', () => {
       });
     });
     describe('after place', () => {
-      test('should move once and report 0,1,N', () => {
+      test('should move once and report 0,1,NORTH', () => {
         const robo = new Robot();
-        robo.place(0, 0, 'N');
+        robo.place(0, 0, 'NORTH');
 
         robo.move();
-        expect(robo.report()).toEqual('0,1,N');
+        expect(robo.report()).toEqual('0,1,NORTH');
       });
       test('should turn left, move and throw out of bounds', () => {
         const robo = new Robot();
-        robo.place(0, 0, 'N');
+        robo.place(0, 0, 'NORTH');
 
         const actions = () => {
           robo.left();
@@ -145,7 +145,7 @@ describe('Robot Class', () => {
       });
       test('should turn move 5 times and throw out of bounds', () => {
         const robo = new Robot();
-        robo.place(0, 0, 'N');
+        robo.place(0, 0, 'NORTH');
 
         const actions = () => {
           robo.move();
@@ -157,22 +157,22 @@ describe('Robot Class', () => {
 
         expect(actions).toThrowError(new Error('Y postion out of bounds'));
       });
-      test('should turn right then and report 0,1,E', () => {
+      test('should turn right then and report 0,1,EAST', () => {
         const robo = new Robot();
-        robo.place(0, 0, 'N');
+        robo.place(0, 0, 'NORTH');
 
         robo.right();
         robo.move();
 
-        expect(robo.report()).toEqual('1,0,E');
+        expect(robo.report()).toEqual('1,0,EAST');
       });
-      test('should place at 4,4,S and move and report 4,3,S', () => {
+      test('should place at 4,4,S and move and report 4,3,SOUTH', () => {
         const robo = new Robot();
-        robo.place(4, 4, 'S');
+        robo.place(4, 4, 'SOUTH');
 
         robo.move();
 
-        expect(robo.report()).toEqual('4,3,S');
+        expect(robo.report()).toEqual('4,3,SOUTH');
       });
     });
   });

@@ -1,4 +1,4 @@
-const FACES = ['N', 'E', 'S', 'W'];
+const FACES = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
 const TABLE_LIMIT = [4, 4];
 
 class Robot {
@@ -93,16 +93,16 @@ class Robot {
     let newX = this.xPos;
     let newY = this.yPos;
     switch (FACES[this.facingPos]) {
-      case 'N':
+      case 'NORTH':
         newY = this.yPos + 1;
         break;
-      case 'E':
+      case 'EAST':
         newX = this.xPos + 1;
         break;
-      case 'W':
+      case 'WEST':
         newX = this.xPos - 1;
         break;
-      case 'S':
+      case 'SOUTH':
         newY = this.yPos - 1;
         break;
     }
