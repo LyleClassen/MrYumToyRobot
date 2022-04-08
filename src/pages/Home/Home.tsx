@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Button, Container, Grid, MenuItem, Select, Stack, TextField } from '@mui/material';
 import AppBar from 'components/appBar/AppBar';
+import TableTop from 'components/tableTop/TableTop';
 
 const Home = () => (
   <>
@@ -40,6 +41,9 @@ const Home = () => (
               Report
             </Button>
           </Stack>
+        </Grid>
+        <Grid item xs={8}>
+          <TableTop />
         </Grid>
       </Grid>
     </Container>

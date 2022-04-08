@@ -12,7 +12,7 @@ const AppBar = () => (
   <MuiAppBar position="static" color="transparent" elevation={0}>
     <Container
       sx={{
-        padding: '10px 0',
+        padding: '12px 0',
       }}
     >
       <a href="https://www.mryum.com/" target="_blank" rel="noreferrer">
