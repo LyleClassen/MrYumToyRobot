@@ -1,53 +1,58 @@
 import React from 'react';
-import { Box, Button, Container, Grid, MenuItem, Select, Stack, TextField } from '@mui/material';
+import { Box, Button, Container, Grid, MenuItem, Paper, Select, Stack, TextField } from '@mui/material';
 import AppBar from 'components/appBar/AppBar';
 import TableTop from 'components/tableTop/TableTop';
 
-const Home = () => (
-  <>
-    <AppBar />
-    <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(90vh)' }}>
-      <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <Box sx={{ height: '120px', width: '100%', backgroundColor: 'green', borderRadius: '20px' }}>
-            Drop File Here
-          </Box>
-        </Grid>
-        <Grid item xs={4}>
-          <Stack spacing={2}>
-            <Stack direction="row" spacing={1}>
-              <Button variant="contained" color="primary">
-                Place
+const Home = () => {
+  return (
+    <>
+      <AppBar />
+      <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(90vh)' }}>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Box sx={{ height: '120px', width: '100%', backgroundColor: 'green', borderRadius: '20px' }}>
+              Drop File Here
+            </Box>
+          </Grid>
+          <Grid item xs={4} display="flex" alignItems="center">
+            <Stack spacing={2}>
+              <Stack direction="row" spacing={1}>
+                <Button variant="contained" color="primary">
+                  Place
+                </Button>
+                <TextField id="outlined-basic" label="X" variant="outlined" />
+                <TextField id="outlined-basic" label="Y" variant="outlined" />
+                <Select label="Facing">
+                  <MenuItem value="NORTH">NORTH</MenuItem>
+                  <MenuItem value="EAST">EAST</MenuItem>
+                  <MenuItem value="SOUTH">SOUTH</MenuItem>
+                  <MenuItem value="WEST">WEST</MenuItem>
+                </Select>
+              </Stack>
+              <Button fullWidth variant="contained" color="primary">
+                Move
               </Button>
-              <TextField id="outlined-basic" label="X" variant="outlined" />
-              <TextField id="outlined-basic" label="Y" variant="outlined" />
-              <Select label="Facing">
-                <MenuItem value="NORTH">NORTH</MenuItem>
-                <MenuItem value="EAST">EAST</MenuItem>
-                <MenuItem value="SOUTH">SOUTH</MenuItem>
-                <MenuItem value="WEST">WEST</MenuItem>
-              </Select>
+              <Button fullWidth variant="contained" color="primary">
+                Left
+              </Button>
+              <Button fullWidth variant="contained" color="primary">
+                Right
+              </Button>
+              <Button fullWidth variant="outlined" color="primary">
+                Report
+              </Button>
             </Stack>
-            <Button fullWidth variant="contained" color="primary">
-              Move
-            </Button>
-            <Button fullWidth variant="contained" color="primary">
-              Left
-            </Button>
-            <Button fullWidth variant="contained" color="primary">
-              Right
-            </Button>
-            <Button fullWidth variant="outlined" color="primary">
-              Report
-            </Button>
-          </Stack>
+          </Grid>
+          <Grid item xs={8}>
+            <TableTop />
+          </Grid>
+          <Grid item xs={12}>
+            <Paper variant="outlined">OUTPUT SECTION</Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          <TableTop />
-        </Grid>
-      </Grid>
-    </Container>
-  </>
-);
+      </Container>
+    </>
+  );
+};
 
 export default Home;
