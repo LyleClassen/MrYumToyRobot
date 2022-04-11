@@ -1,4 +1,4 @@
-const FACES = ['N', 'E', 'S', 'W'];
+const FACES = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
 const TABLE_LIMIT = [4, 4];
 
 class Robot {
@@ -10,11 +10,14 @@ class Robot {
 
   facingPos: number;
 
+  isPlaced: boolean;
+
   constructor() {
-    this.xPos = 0;
-    this.yPos = 0;
-    this.facingPos = FACES.indexOf('N');
-    this.facing = 'N';
+    this.xPos = NaN;
+    this.yPos = NaN;
+    this.facingPos = NaN;
+    this.facing = '';
+    this.isPlaced = false;
   }
 
   place(x: number, y: number, f: string) {
@@ -24,9 +27,11 @@ class Robot {
     this.yPos = y;
     this.facingPos = FACES.indexOf(f);
     this.facing = f;
+    this.isPlaced = true;
   }
 
   move() {
+    this.hasBeenPlaced();
     const { newX, newY } = this.getNewXY();
 
     this.validateXYF(newX, newY, this.facing);
@@ -36,6 +41,7 @@ class Robot {
   }
 
   left() {
+    this.hasBeenPlaced();
     let newFacingPos = this.facingPos;
     newFacingPos--;
     if (newFacingPos === -1) {
@@ -48,6 +54,7 @@ class Robot {
   }
 
   right() {
+    this.hasBeenPlaced();
     let newFacingPos = this.facingPos;
     newFacingPos++;
     if (newFacingPos === 4) {
@@ -60,6 +67,7 @@ class Robot {
   }
 
   report() {
+    this.hasBeenPlaced();
     return `${this.xPos},${this.yPos},${this.facing}`;
   }
 
@@ -75,20 +83,26 @@ class Robot {
     }
   }
 
+  private hasBeenPlaced() {
+    if (!this.isPlaced) {
+      throw new Error('Robot has not been placed');
+    }
+  }
+
   private getNewXY() {
     let newX = this.xPos;
     let newY = this.yPos;
     switch (FACES[this.facingPos]) {
-      case 'N':
+      case 'NORTH':
         newY = this.yPos + 1;
         break;
-      case 'E':
+      case 'EAST':
         newX = this.xPos + 1;
         break;
-      case 'W':
+      case 'WEST':
         newX = this.xPos - 1;
         break;
-      case 'S':
+      case 'SOUTH':
         newY = this.yPos - 1;
         break;
     }

@@ -1,19 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import Home from './pages/Home/Home';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#53f',
+    },
+  },
+  typography: {
+    fontFamily: ['"Nunito"', 'sans-serif'].join(','),
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          padding: '15px 25px',
+          borderRadius: '6px',
+          fontWeight: 'bold',
+          fontSize: '1rem',
+          lineHeight: '1.111em',
+          letterSpacing: '.0.5em',
+        },
+      },
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Home />
+    </ThemeProvider>
   );
 }
 
