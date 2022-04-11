@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, Button, Container, Grid, MenuItem, Paper, Select, Stack, TextField } from '@mui/material';
+import { Box, Container, Grid, Paper } from '@mui/material';
 import AppBar from 'components/appBar/AppBar';
 import TableTop from 'components/tableTop/TableTop';
+import ActionSideBar from 'components/actionSideBar/ActionSideBar';
 
 const Home = () => {
   return (
@@ -15,33 +16,7 @@ const Home = () => {
             </Box>
           </Grid>
           <Grid item xs={4} display="flex" alignItems="center">
-            <Stack spacing={2}>
-              <Stack direction="row" spacing={1}>
-                <Button variant="contained" color="primary">
-                  Place
-                </Button>
-                <TextField id="outlined-basic" label="X" variant="outlined" />
-                <TextField id="outlined-basic" label="Y" variant="outlined" />
-                <Select label="Facing">
-                  <MenuItem value="NORTH">NORTH</MenuItem>
-                  <MenuItem value="EAST">EAST</MenuItem>
-                  <MenuItem value="SOUTH">SOUTH</MenuItem>
-                  <MenuItem value="WEST">WEST</MenuItem>
-                </Select>
-              </Stack>
-              <Button fullWidth variant="contained" color="primary">
-                Move
-              </Button>
-              <Button fullWidth variant="contained" color="primary">
-                Left
-              </Button>
-              <Button fullWidth variant="contained" color="primary">
-                Right
-              </Button>
-              <Button fullWidth variant="outlined" color="primary">
-                Report
-              </Button>
-            </Stack>
+            <ActionSideBar />
           </Grid>
           <Grid item xs={8}>
             <TableTop />

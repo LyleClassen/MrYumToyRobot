@@ -1,4 +1,5 @@
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import RobotProvider from 'providers/RobotProvider';
 import Home from './pages/Home/Home';
 
 const theme = createTheme({
@@ -29,8 +30,10 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Home />
+      <RobotProvider>
+        <CssBaseline />
+        <Home />
+      </RobotProvider>
     </ThemeProvider>
   );
 }
