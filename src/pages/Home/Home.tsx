@@ -6,9 +6,18 @@ import ActionSideBar from 'components/actionSideBar/ActionSideBar';
 
 const Home = () => {
   return (
-    <>
+    <div>
       <AppBar />
-      <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(90vh)' }}>
+
+      <Container
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: 'calc(90vh)',
+          mt: { xl: 0, md: 15 },
+        }}
+      >
         <Grid container rowSpacing={4} columnSpacing={1}>
           <Grid item xs={12}>
             <Paper variant="outlined">
@@ -22,27 +31,25 @@ const Home = () => {
                   units.
                 </p>
                 <p>You can control the robot by typing commands in the INPUT box below and hitting SUBMIT.</p>
-                <p>
-                  Instructions are as follows:
-                  <ul>
-                    <li>
-                      <strong>PLACE X,Y,F</strong> - Places the robot on the board and the direction it is facing (eg.
-                      PLACE 0,1,NORTH).
-                    </li>
-                    <li>
-                      <strong>MOVE</strong> - Moves the robot one position in the direction it is facing.
-                    </li>
-                    <li>
-                      <strong>LEFT</strong> - Turns the robot 90 degrees left.
-                    </li>
-                    <li>
-                      <strong>RIGHT</strong> - Turns the robot 90 degrees right.
-                    </li>
-                    <li>
-                      <strong>REPORT</strong> - Writes the current position and facing to the OUTPUT box.
-                    </li>
-                  </ul>
-                </p>
+                <p>Instructions are as follows:</p>
+                <ul>
+                  <li>
+                    <strong>PLACE X,Y,F</strong> - Places the robot on the board and the direction it is facing (eg.
+                    PLACE 0,1,NORTH).
+                  </li>
+                  <li>
+                    <strong>MOVE</strong> - Moves the robot one position in the direction it is facing.
+                  </li>
+                  <li>
+                    <strong>LEFT</strong> - Turns the robot 90 degrees left.
+                  </li>
+                  <li>
+                    <strong>RIGHT</strong> - Turns the robot 90 degrees right.
+                  </li>
+                  <li>
+                    <strong>REPORT</strong> - Writes the current position and facing to the OUTPUT box.
+                  </li>
+                </ul>
               </Container>
             </Paper>
           </Grid>
@@ -54,7 +61,7 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </div>
   );
 };
 
