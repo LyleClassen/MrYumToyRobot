@@ -15,7 +15,7 @@ const AppBar = () => (
         padding: '12px 0',
       }}
     >
-      <a href="https://www.mryum.com/" target="_blank" rel="noreferrer">
+      <a href="https://www.mryum.com/" target="_blank" rel="noreferrer" data-cy="mr-yum-link">
         <LogoLink alt="Mr Yum Logo" src={mrYumLogo} height={52} />
       </a>
     </Container>

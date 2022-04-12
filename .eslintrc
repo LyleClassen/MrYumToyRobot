@@ -15,7 +15,7 @@
     "plugin:prettier/recommended",
     "plugin:import/recommended"
   ],
-  "plugins": ["react", "@typescript-eslint", "jest"],
+  "plugins": ["react", "@typescript-eslint", "jest", "cypress"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"], // Your TypeScript files extension

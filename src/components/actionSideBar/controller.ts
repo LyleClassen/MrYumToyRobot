@@ -56,10 +56,7 @@ const useActionSideBar = () => {
   const validationSchema = object().shape({
     input: string()
       .uppercase()
-      .matches(
-        /(^PLACE [0,1,2,3,4],[0,1,2,3,4],(NORTH|EAST|SOUTH|WEST))$|^(MOVE|LEFT|RIGHT|REPORT)$/,
-        'Invalid Command',
-      ),
+      .matches(/(^PLACE \d,\d,(NORTH|EAST|SOUTH|WEST))$|^(MOVE|LEFT|RIGHT|REPORT)$/, 'Invalid Command'),
   });
 
   return {

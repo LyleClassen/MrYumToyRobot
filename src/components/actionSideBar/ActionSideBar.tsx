@@ -12,7 +12,7 @@ const renderRow =
   // eslint-disable-next-line react/display-name
   ({ index, style }: { index: number; style: React.CSSProperties }) =>
     (
-      <ListItem style={style} key={`${index}`} component="div">
+      <ListItem style={style} key={`${index}`}>
         <ListItemText primary={reportList[index]} />
       </ListItem>
     );
@@ -42,6 +42,7 @@ const ActionSideBar = () => {
                   sx={{ width: '100%' }}
                   helperText=" "
                   autoFocus
+                  data-cy="input-box"
                 />
               </Grid>
               <Grid item xs={2}>
@@ -52,6 +53,7 @@ const ActionSideBar = () => {
                   type="submit"
                   size="large"
                   disabled={isSubmitting || !values.input}
+                  data-cy="submit_button"
                 >
                   Submit
                 </Button>
@@ -66,7 +68,14 @@ const ActionSideBar = () => {
           <Divider />
           <AutoSizer>
             {({ height, width }: { height: number; width: number }) => (
-              <List ref={outputRef} height={height} width={width} itemSize={20} itemCount={reportList.length}>
+              <List
+                className="output-list"
+                ref={outputRef}
+                height={height}
+                width={width}
+                itemSize={20}
+                itemCount={reportList.length}
+              >
                 {renderRow(reportList as Array<string>)}
               </List>
             )}

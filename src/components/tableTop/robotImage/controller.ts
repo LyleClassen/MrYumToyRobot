@@ -34,21 +34,25 @@ const useRobotImageController = (x: number, y: number, facingPos: number, size: 
 
     const direction = facingPos - calcFacing;
 
-    if ((direction > 0 || direction === -3) && direction !== 3) {
+    if (direction === 1 || direction === -3) {
       const newRotation = rotation + 90;
       node.to({
         rotation: newRotation,
         duration: 0.1,
       });
       setRotation(newRotation);
-    } else if (direction < 0 || direction === 3) {
+    } else if (direction === -1 || direction === 3) {
       const newRotation = rotation - 90;
-      console.log('LEFT', newRotation);
+
       node.to({
         rotation: newRotation,
         duration: 0.1,
       });
       setRotation(newRotation);
+    } else {
+      const resetRotate = facingPos * 90;
+      setRotation(resetRotate);
+      node.rotation(resetRotate);
     }
 
     setCalcFacing(facingPos);
