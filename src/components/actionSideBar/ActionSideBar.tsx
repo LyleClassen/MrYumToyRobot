@@ -34,10 +34,10 @@ const ActionSideBar = () => {
                 <Field
                   component={TextField}
                   name="input"
-                  label="Input"
+                  label="INPUT"
                   variant="outlined"
                   color="primary"
-                  placeholder="Input"
+                  placeholder="INPUT"
                   inputProps={{ style: { textTransform: 'uppercase' }, ref: inputRef }}
                   sx={{ width: '100%' }}
                   helperText=" "
