@@ -20,9 +20,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "types": ["cypress"]
   },
   "include": [
-    "src"
+    "src",
+    "cypress"
   ]
 }
