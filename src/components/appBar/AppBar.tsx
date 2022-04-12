@@ -9,10 +9,12 @@ const LogoLink = styled('img')({
 });
 
 const AppBar = () => (
-  <MuiAppBar position="static" color="transparent" elevation={0}>
+  <MuiAppBar position="relative" color="transparent" elevation={0}>
     <Container
+      component="header"
       sx={{
         padding: '12px 0',
+        height: '52px',
       }}
     >
       <a href="https://www.mryum.com/" target="_blank" rel="noreferrer" data-cy="mr-yum-link">
