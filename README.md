@@ -114,7 +114,7 @@ Project specifications can be found <a href="./MrYum_Toy_Robot_Simulator.pdf">he
    ```
 2. Install Yarn packages
    ```sh
-   yarn
+   yarn install
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
