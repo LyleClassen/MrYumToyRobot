@@ -73,6 +73,8 @@
 
 This application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 
+Project specifications can be found <a href="./MrYum_Toy_Robot_Simulator.pdf">here</a>
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
