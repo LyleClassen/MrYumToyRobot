@@ -24,6 +24,7 @@ const RobotContext = createContext({
   facingPos: NaN,
   facing: '',
   isPlaced: false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   place: (_x: number, _y: number, _facing: string) => {},
   move: () => {},
   left: () => {},
