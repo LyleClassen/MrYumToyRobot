@@ -10,11 +10,6 @@ const Home = () => {
       <AppBar />
       <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 'calc(90vh)' }}>
         <Grid container rowSpacing={4} columnSpacing={1}>
-          {/* <Grid item xs={12}>
-            <Box sx={{ height: '120px', width: '100%', backgroundColor: 'green', borderRadius: '20px' }}>
-              Drop File Here
-            </Box>
-          </Grid> */}
           <Grid item xs={5} display="flex" justifyContent="center">
             <ActionSideBar />
           </Grid>
