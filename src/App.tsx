@@ -21,6 +21,7 @@ const theme = createTheme({
           fontSize: '1rem',
           lineHeight: '1.111em',
           letterSpacing: '.0.5em',
+          maxHeight: '56px',
         },
       },
     },
