@@ -1,19 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Container, Grid, Typography } from '@mui/material';
 import { Layer, Line, Stage } from 'react-konva';
-import RobotImage from './RobotImage';
+import RobotImage from './robotImage/RobotImage';
+import useTableTop, { TableTopType } from './controller';
 
 const TableTop = () => {
-  const tableRef = useRef<HTMLDivElement>(null);
-  const [stageSize, setStageSize] = useState(400);
-  const [spacing, setSpacing] = useState(400 / 5);
-
-  useEffect(() => {
-    const newStateSize = tableRef?.current?.clientWidth || 400;
-
-    setStageSize(newStateSize);
-    setSpacing(newStateSize / 5);
-  }, [tableRef]);
+  const { xPos, yPos, facingPos, isPlaced, tableRef, stageSize, spacing }: TableTopType = useTableTop();
 
   return (
     <Grid container>
@@ -53,9 +45,11 @@ const TableTop = () => {
               <Line points={[0, spacing * 4, stageSize, spacing * 4]} stroke="black" />
               <Line points={[0, stageSize, stageSize, stageSize]} stroke="black" />
             </Layer>
-            <Layer>
-              <RobotImage x={0} y={0} size={spacing} />
-            </Layer>
+            {isPlaced && (
+              <Layer>
+                <RobotImage x={xPos} y={yPos} facingPos={facingPos} size={spacing} />
+              </Layer>
+            )}
           </Stage>
         </Container>
       </Grid>

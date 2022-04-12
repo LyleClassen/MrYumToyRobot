@@ -11,6 +11,7 @@ const useActionSideBar = () => {
   const { place, move, left, right, report }: RobotContent = useRobotData();
   const [reportList, setReportList] = useState([]);
   const outputRef = useRef(null);
+  const inputRef = useRef<HTMLElement>(null);
 
   const initialValues = {
     input: '',
@@ -18,10 +19,7 @@ const useActionSideBar = () => {
 
   const onSubmit = (
     values: FormValues,
-    {
-      setSubmitting,
-    }: // resetForm
-    { setSubmitting: (v: boolean) => void; resetForm: () => void },
+    { setSubmitting, resetForm }: { setSubmitting: (v: boolean) => void; resetForm: () => void },
   ) => {
     const { input } = values;
     const validInput = input.toUpperCase().split(' ');
@@ -30,6 +28,7 @@ const useActionSideBar = () => {
       case 'PLACE':
         const [xStr, yStr, facingStr] = validInput[1].split(',') as [string, string, string];
         place(Number(xStr), Number(yStr), facingStr);
+        resetForm();
         break;
       case 'MOVE':
         move();
@@ -51,7 +50,7 @@ const useActionSideBar = () => {
     }
 
     setSubmitting(false);
-    // resetForm();
+    inputRef.current.focus();
   };
 
   const validationSchema = object().shape({
@@ -66,6 +65,7 @@ const useActionSideBar = () => {
   return {
     reportList,
     outputRef,
+    inputRef,
     initialValues,
     validationSchema,
     onSubmit,

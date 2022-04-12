@@ -18,7 +18,7 @@ const renderRow =
     );
 
 const ActionSideBar = () => {
-  const { reportList, outputRef, initialValues, validationSchema, onSubmit } = useActionSideBar();
+  const { reportList, outputRef, inputRef, initialValues, validationSchema, onSubmit } = useActionSideBar();
   return (
     <Stack spacing={2} sx={{ width: '100%', height: '100%' }}>
       <Formik
@@ -38,7 +38,7 @@ const ActionSideBar = () => {
                   variant="outlined"
                   color="primary"
                   placeholder="Input"
-                  inputProps={{ style: { textTransform: 'uppercase' } }}
+                  inputProps={{ style: { textTransform: 'uppercase' }, ref: inputRef }}
                   sx={{ width: '100%' }}
                   helperText=" "
                   autoFocus
