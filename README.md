@@ -110,7 +110,7 @@ Project specifications can be found <a href="./MrYum_Toy_Robot_Simulator.pdf">he
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/LyleClassen/MrYumToyRobot.git
+   git clone https://github.com/LyleClassen/mr-yum-toy-robot.git
    ```
 2. Install Yarn packages
    ```sh
@@ -151,7 +151,7 @@ Project specifications can be found <a href="./MrYum_Toy_Robot_Simulator.pdf">he
 
 Lyle Classen - [@lyle_classen](https://twitter.com/your_username) - classenlyle@gmail.com
 
-Project Link: [https://github.com/LyleClassen/MrYumToyRobot](https://github.com/LyleClassen/mr-yum-toy-robot)
+Project Link: [https://github.com/LyleClassen/mr-yum-toy-robot.git](https://github.com/LyleClassen/mr-yum-toy-robot)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
